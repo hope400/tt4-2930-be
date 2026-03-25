@@ -1,7 +1,29 @@
 test
 
-renancavalcanti_db_user
+EXAMPLE ENDPOINTS
 
-CBFUY2q2VWNd0MqR
+app.get("/", (req, res) => {
+    console.log(req);
+    // res.send("<h1>TEST</h1>");
+    return res.json({
+        message: "API endpoint is working!"
+    });
+});
 
-mongodb+srv://renancavalcanti_db_user:CBFUY2q2VWNd0MqR@cluster0.whvxvig.mongodb.net/?appName=Cluster0
+app.post("/test", (req, res) => {
+    console.log(req);
+    return res.json({
+        message: "API endpoint /test is working!",
+        data: {
+            ok: true,
+            tip: "Data json test endpoint!"
+        }
+    });
+});
+
+
+START APP:
+
+// app.listen(5000, ()=>{
+//     console.log("Server is running...");
+// });
