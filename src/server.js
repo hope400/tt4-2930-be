@@ -1,8 +1,10 @@
+const path = require("path");
 const dotenv = require("dotenv");
-const { connectDB } = require("./config/db");
-const app = require("./app")
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
+const { connectDB } = require("./config/db");
+const app = require("./app");
 
 const startServer = async () => {
     try{
@@ -11,9 +13,7 @@ const startServer = async () => {
         app.listen(5000, ()=>{
             console.log("Server is running...");
         });
-
-    }
-    catch(error){
+    }catch(error){
         console.error("Failed to start server", error);
         process.exit(1);
     }
